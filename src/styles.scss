@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Pattaya';
+    src: url('/assets/fonts/Pattaya-Regular.ttf');
+    font-weight: 400;
+}
+
+* {
+    font-family: 'Pattaya';
+    letter-spacing: 2px;
+}
+
+body {
+    margin: 0;
+}
