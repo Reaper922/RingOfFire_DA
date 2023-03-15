@@ -1,0 +1,23 @@
+<main class="game-screen">
+    <img src="/assets/img/game_background.jpg" alt="Title"
+        class="background" draggable="false">
+
+    <div class="card-stack">
+        <!-- Stack -->
+        <img src="/assets/img/playing_cards/backs/blue.svg"
+            draggable="false"
+            *ngFor="let card of [0, 1, 2, 3]"
+            [style.right]="card * 8 + 'px'">
+        <!-- Top Card -->
+        <img src="/assets/img/playing_cards/backs/blue.svg"
+            class="top-card" draggable="false"
+            [style.right]="4 * 8 + 'px'"
+            (click)="drawCard()">
+        <!-- Drawn Card -->
+        <img src="/assets/img/playing_cards/fronts/clubs_7.svg"
+            class="drawn-card" draggable="false">
+    </div>
+
+    <app-player-display></app-player-display>
+    <app-instructions></app-instructions>
+</main>
