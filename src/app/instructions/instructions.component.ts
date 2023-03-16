@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Instruction } from '../models/instruction';
 
 @Component({
   selector: 'app-instructions',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./instructions.component.scss']
 })
 export class InstructionsComponent {
-
+  @Input() instructions!: Instruction[];
+  @Input() cardNumber!: number;
 }

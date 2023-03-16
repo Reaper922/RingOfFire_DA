@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class PlayerComponent {
   @Input() player: string = '';
-  isActive: boolean = false;
+  @Input() isActive: boolean = false;
 }

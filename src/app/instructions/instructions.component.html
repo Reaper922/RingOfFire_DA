@@ -1,4 +1,4 @@
 <div class="instructions">
-    <h3>Title</h3>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur deleniti dolore voluptatum, repellendus molestias dignissimos. Qui, nostrum iste ad, tempora temporibus saepe omnis, quibusdam amet nam quasi consequuntur enim perspiciatis.</p>
+    <h3>{{ cardNumber == -1 ? 'Add Player:' : instructions[cardNumber].title }}</h3>
+    <p>{{ cardNumber == -1 ? 'Please add at least one Player using the add button on the right. After that you can start the game by clicking on a card. Additional players can be added at any time.' : instructions[cardNumber].instruction }}</p>
 </div>

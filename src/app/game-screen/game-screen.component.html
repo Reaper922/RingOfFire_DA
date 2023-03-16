@@ -6,18 +6,39 @@
         <!-- Stack -->
         <img src="/assets/img/playing_cards/backs/blue.svg"
             draggable="false"
-            *ngFor="let card of [0, 1, 2, 3]"
+            *ngFor="let card of [0, 1, 2, 3, 4]"
             [style.right]="card * 8 + 'px'">
         <!-- Top Card -->
         <img src="/assets/img/playing_cards/backs/blue.svg"
             class="top-card" draggable="false"
             [style.right]="4 * 8 + 'px'"
+            *ngIf="game.player.length > 0 && game.cardStack.length != 0"
             (click)="drawCard()">
         <!-- Drawn Card -->
-        <img src="/assets/img/playing_cards/fronts/clubs_7.svg"
-            class="drawn-card" draggable="false">
+        <img src="/assets/img/playing_cards/fronts/{{ game.playedCard }}.svg"
+            class="drawn-card" draggable="false"
+            *ngIf="game.playedCard">
+        <!-- Draw Animation -->
+        <img src="/assets/img/playing_cards/fronts/{{ drawnCard }}.svg"
+            class="draw-animation" draggable="false"
+            [style.right]="4 * 8 + 'px'"
+            *ngIf="cardAnimation">
+
     </div>
 
-    <app-player-display></app-player-display>
-    <app-instructions></app-instructions>
+    <app-player-display
+        [players]="game.player"
+        [currentPlayer]="game.currentPlayer"
+        (newPlayer)="game.addPlayer($event)"
+    ></app-player-display>
+    <app-instructions
+        [instructions]="game.instructions"
+        [cardNumber]="playedCardNumber"
+    ></app-instructions>
+
+    <div class="restart"
+        *ngIf="game.cardStack.length == 0"
+        (click)="newGame()">
+        <h2>Restart</h2>
+    </div>
 </main>

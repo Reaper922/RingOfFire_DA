@@ -1,6 +1,12 @@
 <div class="player-display">
     <app-player
-        *ngFor="let player of ['Hannes', 'Jürgen', 'Marie']"
-        [player]="player">
+        *ngFor="let player of players; let i = index"
+        [player]="player"
+        [isActive]="i === currentPlayer">
     </app-player>
+    <button mat-mini-fab color="warn" class="add-player"
+        *ngIf="players.length < 6"
+        (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+    </button>
 </div>
