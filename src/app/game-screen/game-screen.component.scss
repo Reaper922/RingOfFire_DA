@@ -1,3 +1,9 @@
+$top: -180px;
+$left: 180px;
+$top-mobile: -165px;
+$left-mobile: 100px;
+
+
 .game-screen {
     display: flex;
     width: 100dvw;
@@ -58,21 +64,48 @@
         }
 
         .drawn-card {
-            top: -180px;
-            left: 180px;
+            top: $top;
+            left: $left;
             transform:
                 scale(1.3)
                 rotate(-35deg);
         }
 
         .draw-animation {
-            top: -180px;
-            left: 180px;
+            top: $top;
+            left: $left;
             transform:
                 scale(1.3)
                 rotate(-35deg);
             animation: draw-card 2s ease-in-out;
         }
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    $top: -165px;
+    $left: 100px;
+
+
+    .game-screen {
+        .card-stack {
+            top: 45%;
+            left: 30%;
+            width: 80px;
+
+            .drawn-card {
+                top: $top;
+                left: $left;
+            }
+    
+            .draw-animation {
+                top: $top;
+                left: $left;
+                animation: draw-card-mobile 2s ease-in-out;
+            }
+        }
+
     }
 }
 
@@ -91,16 +124,46 @@
     }
 
     90% {
-        top: -180px;
-        left: 180px;
+        top: $top;
+        left: $left;
         transform:
             scale(1.3)
             rotate(-35deg);
     }
 
     100% {
-        top: -180px;
-        left: 180px;
+        top: $top;
+        left: $left;
+        transform:
+            scale(1.3)
+            rotate(-35deg);
+    }
+}
+
+@keyframes draw-card-mobile {
+    0% {
+        top: 0;
+        left: -32px;
+        transform: scale(1.12);
+    }
+
+    65% {
+        top: 0;
+        left: 0px;
+        transform: scale(1.6); 
+    }
+
+    90% {
+        top: $top-mobile;
+        left: $left-mobile;
+        transform:
+            scale(1.3)
+            rotate(-35deg);
+    }
+
+    100% {
+        top: $top-mobile;
+        left: $left-mobile;
         transform:
             scale(1.3)
             rotate(-35deg);
