@@ -19,21 +19,20 @@
             class="drawn-card" draggable="false"
             *ngIf="game.playedCard">
         <!-- Draw Animation -->
-        <img src="/assets/img/playing_cards/fronts/{{ drawnCard }}.svg"
+        <img src="/assets/img/playing_cards/fronts/{{ game.drawnCard }}.svg"
             class="draw-animation" draggable="false"
             [style.right]="4 * 8 + 'px'"
-            *ngIf="cardAnimation">
-
+            *ngIf="game.cardAnimation">
     </div>
 
     <app-player-display
         [players]="game.player"
         [currentPlayer]="game.currentPlayer"
-        (newPlayer)="game.addPlayer($event)"
+        (newPlayer)="addNewPlayer($event)"
     ></app-player-display>
     <app-instructions
         [instructions]="game.instructions"
-        [cardNumber]="playedCardNumber"
+        [cardNumber]="game.playedCardNumber"
     ></app-instructions>
 
     <div class="restart"

@@ -5,7 +5,9 @@ export class Game {
     numberOfCardsInSuit: number = 13;
     cardStack: string[] = [];
     playedCard: string = '';
-    playedCardNumber!: number;
+    drawnCard: string = '';
+    playedCardNumber: number = -1;
+    cardAnimation: boolean = false;
     player: string[] = [];
     currentPlayer: number = -1;
     instructions: Instruction[] = [
@@ -54,10 +56,13 @@ export class Game {
 
     drawCard(): string {
         return this.cardStack.pop()!;
-
     }
 
     setDrawnCard(card: string) {
+        this.drawnCard = card; 
+    }
+
+    setPlayedCard(card: string) {
         this.playedCard = card; 
     }
  
@@ -67,5 +72,17 @@ export class Game {
 
     nextPlayer() {
         this.currentPlayer = (this.currentPlayer + 1) % this.player.length;
+    }
+
+    toJSON() {
+        return {
+            cardStack: this.cardStack,
+            playedCard: this.playedCard,
+            playedCardNumber: this.playedCardNumber,
+            player: this.player,
+            currentPlayer: this.currentPlayer,
+            cardAnimation: this.cardAnimation,
+            drawnCard: this.drawnCard
+        }
     }
 }
